@@ -25,7 +25,13 @@
       "PowerShell(node screenshot.js)",
       "PowerShell(Get-NetTCPConnection *)",
       "PowerShell(Remove-Item *)",
-      "PowerShell(git *)"
+      "PowerShell(git *)",
+      "Bash(git commit *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "PowerShell(git push *)",
+      "Bash(git ls-remote *)",
+      "Bash(git add *)"
     ]
   }
 }
