@@ -53,22 +53,49 @@ $sizes = [ordered]@{
 
 foreach ($name in $sizes.Keys) {
   $size = $sizes[$name]
-  $bmp = [System.Drawing.Bitmap]::new($size, $size, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
-  $g = [System.Drawing.Graphics]::FromImage($bmp)
-  $g.InterpolationMode   = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
-  $g.SmoothingMode       = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
-  $g.PixelOffsetMode     = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
-  $g.CompositingQuality  = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
-  $g.Clear($ink)
+
+  # Step 1: render the resized image (with dark backdrop) into a temp square bitmap
+  $temp = [System.Drawing.Bitmap]::new($size, $size, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
+  $gtemp = [System.Drawing.Graphics]::FromImage($temp)
+  $gtemp.InterpolationMode  = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+  $gtemp.SmoothingMode      = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
+  $gtemp.PixelOffsetMode    = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+  $gtemp.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
+  $gtemp.Clear($ink)
   $srcRect = [System.Drawing.Rectangle]::new($cropX, $cropY, $canvasSize, $canvasSize)
   $dstRect = [System.Drawing.Rectangle]::new(0, 0, $size, $size)
-  $g.DrawImage($src, $dstRect, $srcRect, [System.Drawing.GraphicsUnit]::Pixel)
+  $gtemp.DrawImage($src, $dstRect, $srcRect, [System.Drawing.GraphicsUnit]::Pixel)
+  $gtemp.Dispose()
+
+  # Step 2: build an iOS-spec rounded-square path (22.37% radius) and fill with the temp as a texture brush — anti-aliased corners
+  $bmp = [System.Drawing.Bitmap]::new($size, $size, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
+  $g = [System.Drawing.Graphics]::FromImage($bmp)
+  $g.SmoothingMode      = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
+  $g.InterpolationMode  = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+  $g.PixelOffsetMode    = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+
+  $radius = [Math]::Round($size * 0.2237)
+  $d = $radius * 2
+  $path = [System.Drawing.Drawing2D.GraphicsPath]::new()
+  $path.AddArc(0, 0, $d, $d, 180, 90)
+  $path.AddArc($size - $d - 1, 0, $d, $d, 270, 90)
+  $path.AddArc($size - $d - 1, $size - $d - 1, $d, $d, 0, 90)
+  $path.AddArc(0, $size - $d - 1, $d, $d, 90, 90)
+  $path.CloseFigure()
+
+  $brush = [System.Drawing.TextureBrush]::new($temp)
+  $g.FillPath($brush, $path)
+
+  $brush.Dispose()
+  $path.Dispose()
   $g.Dispose()
+  $temp.Dispose()
+
   $outPath = (Join-Path (Resolve-Path "assets/images").Path $name)
   $bmp.Save($outPath, [System.Drawing.Imaging.ImageFormat]::Png)
   $bmp.Dispose()
   $len = (Get-Item $outPath).Length
-  Write-Host "  -> $name  ($size x $size, $len bytes)"
+  Write-Host "  -> $name  ($size x $size, r=$radius, $len bytes)"
 }
 
 $src.Dispose()

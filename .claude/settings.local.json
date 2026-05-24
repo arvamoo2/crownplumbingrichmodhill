@@ -35,7 +35,8 @@
       "PowerShell(node debug-page-hero.js)",
       "PowerShell(Test-Path *)",
       "PowerShell(Get-Item *)",
-      "PowerShell(.\\\\generate-favicons.ps1)"
+      "PowerShell(.\\\\generate-favicons.ps1)",
+      "Bash(git push *)"
     ]
   }
 }
