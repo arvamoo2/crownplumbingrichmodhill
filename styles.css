@@ -255,16 +255,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .nav-brand .crown-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px; height: 28px;
-  background: var(--gold-grad);
-  color: var(--ink);
-  border-radius: 2px;
-  font-size: 13px;
-  font-weight: 700;
-  font-family: var(--serif);
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .nav-links {
