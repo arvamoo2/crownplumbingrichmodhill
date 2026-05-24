@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:elitecardetailingrichmondhill.vercel.app)",
+      "Bash(where node *)",
+      "Bash(npx --version)",
+      "Bash(python -m http.server 5500 --bind 127.0.0.1)",
+      "Bash(curl *)",
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Read(//c/Program Files \\(x86\\)/Google/Chrome/Application/**)",
+      "Read(//c/Users/arvin/AppData/Local/Google/Chrome/Application/**)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(node -e \"console.log\\(require\\('puppeteer-core/package.json'\\).version\\)\")",
+      "Bash(node screenshot.js)",
+      "Bash(node -e ' *)",
+      "Bash(node debug.js)",
+      "Bash(node measure.js)",
+      "Bash(node verify.js)",
+      "Bash(node header-check.js)",
+      "PowerShell(Get-ChildItem screenshots | Select-Object -ExpandProperty Name; node --version)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(python -m http.server 5500 --bind 127.0.0.1)",
+      "PowerShell($ok=$false; foreach\\($i in 1..10\\){ try { $r=Invoke-WebRequest \"http://127.0.0.1:5500/services.html\" -UseBasicParsing -TimeoutSec 2; $ok=$true; \"READY $\\($r.StatusCode\\)\"; break } catch { Start-Sleep -Milliseconds 400 } }; if\\(-not $ok\\){\"NOT READY\"})",
+      "PowerShell(node screenshot.js)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(git *)"
+    ]
+  }
+}
