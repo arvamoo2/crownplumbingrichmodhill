@@ -2332,12 +2332,20 @@ body.nav-open .chrome { opacity: 0; transition: opacity 0.3s; }
   .service-row { grid-template-columns: 1fr; }
   .service-row:nth-child(even) { direction: ltr; }
   .service-row-media { aspect-ratio: 16/10; }
-  .casebook-entry { grid-template-columns: 1fr; row-gap: 40px; }
+  .casebook-entry {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+  }
   .casebook-entry > .casebook-media,
-  .casebook-entry > .casebook-text { grid-column: 1 / -1; grid-row: auto; }
-  .casebook-entry.layout-b .casebook-media,
-  .casebook-entry.layout-d .casebook-media { order: -1; }
-  .casebook-media { aspect-ratio: 16/10; }
+  .casebook-entry > .casebook-text {
+    width: 100%;
+    max-width: 100%;
+  }
+  .casebook-media {
+    aspect-ratio: 4/5;
+    width: 100%;
+  }
   .book-grid { grid-template-columns: 1fr; row-gap: 64px; }
   .book-form-col,
   .book-process-col { grid-column: 1 / -1; }
