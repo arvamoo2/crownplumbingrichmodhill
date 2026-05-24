@@ -342,12 +342,40 @@
   }
 
   /* -------------------------------------------------------
-     Mobile nav toggle
+     Mobile nav — full-screen overlay
      ------------------------------------------------------- */
   function initNav() {
     const toggle = document.querySelector('.nav-toggle');
-    const links = document.querySelector('.nav-links');
-    if (toggle && links) toggle.addEventListener('click', () => links.classList.toggle('open'));
+    if (!toggle) return;
+    const menu = document.querySelector('.mobile-menu');
+
+    const open = () => {
+      document.body.classList.add('nav-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      if (menu) menu.setAttribute('aria-hidden', 'false');
+      if (lenis) lenis.stop();
+    };
+
+    const close = () => {
+      document.body.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      if (menu) menu.setAttribute('aria-hidden', 'true');
+      if (lenis) lenis.start();
+    };
+
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.addEventListener('click', () => {
+      if (document.body.classList.contains('nav-open')) close();
+      else open();
+    });
+
+    document.querySelectorAll('.mobile-menu-item').forEach(item => {
+      item.addEventListener('click', close);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('nav-open')) close();
+    });
   }
 
   /* -------------------------------------------------------
