@@ -32,7 +32,10 @@
       "PowerShell(git push *)",
       "Bash(git ls-remote *)",
       "Bash(git add *)",
-      "PowerShell(node debug-page-hero.js)"
+      "PowerShell(node debug-page-hero.js)",
+      "PowerShell(Test-Path *)",
+      "PowerShell(Get-Item *)",
+      "PowerShell(.\\\\generate-favicons.ps1)"
     ]
   }
 }
