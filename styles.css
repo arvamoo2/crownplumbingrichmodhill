@@ -12,7 +12,7 @@
   --gold:       #C9A86A;
   --gold-deep:  #9F8044;
   --gold-light: #E0C893;
-  --mute:       #6B655A;
+  --mute:       #8B8478; /* lightened to clear WCAG AA 4.5:1 on the near-black ground */
   --hairline:   rgba(240, 234, 216, 0.10);
   --hairline-2: rgba(240, 234, 216, 0.18);
   --gold-grad:  linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-deep) 100%);
@@ -2423,4 +2423,34 @@ body.nav-open .chrome { opacity: 0; transition: opacity 0.3s; }
   .page-hero.with-image .page-hero-inner .lead {
     max-width: 100%;
   }
+}
+
+/* =========================================================
+   Keyboard focus — visible gold ring for accessibility.
+   Mouse/touch users keep the existing hover styling; this
+   only shows for keyboard navigation (:focus-visible).
+   Placed last so it overrides the form fields' outline:none.
+   ========================================================= */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.nav-toggle:focus-visible,
+.nav-cta:focus-visible,
+.text-link:focus-visible,
+.programme:focus-visible,
+.mobile-menu-item:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible,
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
 }
