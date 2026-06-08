@@ -25,6 +25,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
 
+  <link rel="preload" as="image" href="assets/images/programmes-header.jpg" fetchpriority="high" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -37,7 +39,7 @@
   <!-- NAV -->
   <header class="nav">
     <a href="index.html" class="nav-brand">
-      <img src="assets/images/crown-logo.png" alt="Crown Plumbing" class="crown-mark" />
+      <img src="assets/images/crown-logo.png" alt="Crown Plumbing" class="crown-mark" width="736" height="736" />
       Crown Plumbing
     </a>
     <nav>
@@ -85,7 +87,7 @@
   <section class="page-hero with-image">
     <div class="hero-image">
       <!-- Fallback: https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=2000&q=80&fm=webp -->
-      <img src="assets/images/programmes-header.jpg" alt="Copper pipe assembly" />
+      <img src="assets/images/programmes-header.jpg" alt="Copper pipe assembly" width="928" height="1152" fetchpriority="high" />
     </div>
     <div class="wrap page-hero-inner">
       <span class="eyebrow">I — VI · The Programmes</span>
@@ -120,7 +122,7 @@
       <article class="service-row" id="inspection">
         <div class="service-row-media">
           <!-- Fallback: https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=1400&q=80&fm=webp -->
-          <img src="assets/images/hover-i-inspection.jpg" alt="Inspection" />
+          <img src="assets/images/hover-i-inspection.jpg" alt="Inspection" width="928" height="1152" loading="lazy" />
         </div>
         <div class="service-row-text">
           <span class="roman">§ I. — The Inspection</span>
@@ -141,7 +143,7 @@
       <article class="service-row" id="repair">
         <div class="service-row-media">
           <!-- Fallback: https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1400&q=80&fm=webp -->
-          <img src="assets/images/hover-ii-repair.jpg" alt="Repair" />
+          <img src="assets/images/hover-ii-repair.jpg" alt="Repair" width="928" height="1152" loading="lazy" />
         </div>
         <div class="service-row-text">
           <span class="roman">§ II. — The Repair</span>
@@ -162,7 +164,7 @@
       <article class="service-row" id="refresh">
         <div class="service-row-media">
           <!-- Fallback: https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1400&q=80&fm=webp -->
-          <img src="assets/images/hover-iii-refresh.jpg" alt="Refresh" />
+          <img src="assets/images/hover-iii-refresh.jpg" alt="Refresh" width="928" height="1152" loading="lazy" />
         </div>
         <div class="service-row-text">
           <span class="roman">§ III. — The Refresh</span>
@@ -183,7 +185,7 @@
       <article class="service-row" id="restoration">
         <div class="service-row-media">
           <!-- Fallback: https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=1400&q=80&fm=webp -->
-          <img src="assets/images/hover-iv-restoration.jpg" alt="Restoration" />
+          <img src="assets/images/hover-iv-restoration.jpg" alt="Restoration" width="928" height="1152" loading="lazy" />
         </div>
         <div class="service-row-text">
           <span class="roman">§ IV. — The Restoration</span>
@@ -204,7 +206,7 @@
       <article class="service-row" id="renovation">
         <div class="service-row-media">
           <!-- Fallback: https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1400&q=80&fm=webp -->
-          <img src="assets/images/hover-v-renovation.jpg" alt="Renovation" />
+          <img src="assets/images/hover-v-renovation.jpg" alt="Renovation" width="928" height="1152" loading="lazy" />
         </div>
         <div class="service-row-text">
           <span class="roman">§ V. — The Renovation</span>
@@ -225,7 +227,10 @@
       <article class="service-row" id="estate">
         <div class="service-row-media">
           <!-- Fallback: https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=80&fm=webp -->
-          <img src="assets/images/hover-vi-estate.png" alt="Estate" />
+          <picture>
+            <source srcset="assets/images/hover-vi-estate.webp" type="image/webp" />
+            <img src="assets/images/hover-vi-estate.png" alt="Estate" width="928" height="1152" loading="lazy" />
+          </picture>
         </div>
         <div class="service-row-text">
           <span class="roman">§ VI. — The Estate</span>
@@ -271,7 +276,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-brand" style="margin-bottom:18px;">
-            <img src="assets/images/crown-logo.png" alt="Crown Plumbing" class="crown-mark" />
+            <img src="assets/images/crown-logo.png" alt="Crown Plumbing" class="crown-mark" width="736" height="736" loading="lazy" />
             Crown Plumbing
           </div>
           <p>A craftsman's plumbing programme for Richmond Hill, Thornhill, Vaughan and the surrounding GTA.</p>

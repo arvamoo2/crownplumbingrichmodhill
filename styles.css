@@ -62,6 +62,7 @@ body::before {
 }
 
 img { max-width: 100%; display: block; }
+picture { display: contents; } /* keep <picture> layout-transparent so wrapped imgs size like a direct child */
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 

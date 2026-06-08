@@ -25,6 +25,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
 
+  <link rel="preload" as="image" href="assets/images/gallery-hero.webp" type="image/webp" fetchpriority="high" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -37,7 +39,7 @@
   <!-- NAV -->
   <header class="nav">
     <a href="index.html" class="nav-brand">
-      <img src="assets/images/crown-logo.png" alt="Crown Plumbing" class="crown-mark" />
+      <img src="assets/images/crown-logo.png" alt="Crown Plumbing" class="crown-mark" width="736" height="736" />
       Crown Plumbing
     </a>
     <nav>
@@ -84,7 +86,10 @@
   <!-- PAGE HERO -->
   <section class="page-hero with-image">
     <div class="hero-image">
-      <img src="assets/images/gallery-hero.png" alt="Overhead tool roll flatlay" />
+      <picture>
+        <source srcset="assets/images/gallery-hero.webp" type="image/webp" />
+        <img src="assets/images/gallery-hero.png" alt="Overhead tool roll flatlay" width="928" height="1152" fetchpriority="high" />
+      </picture>
     </div>
     <div class="wrap page-hero-inner">
       <span class="eyebrow">§ Selected Work · I — VI</span>
@@ -106,7 +111,10 @@
         <!-- I -->
         <article class="casebook-entry layout-a" id="case-i">
           <div class="casebook-media">
-            <img src="assets/images/case-i-diagnostic.png" alt="A gauge at the manifold" />
+            <picture>
+              <source srcset="assets/images/case-i-diagnostic.webp" type="image/webp" />
+              <img src="assets/images/case-i-diagnostic.png" alt="A gauge at the manifold" width="928" height="1152" loading="lazy" />
+            </picture>
           </div>
           <div class="casebook-text">
             <span class="roman">§ I. — The Diagnostic</span>
@@ -123,7 +131,10 @@
         <!-- II -->
         <article class="casebook-entry layout-b" id="case-ii">
           <div class="casebook-media">
-            <img src="assets/images/case-ii-repair.png" alt="Hands under the sink" />
+            <picture>
+              <source srcset="assets/images/case-ii-repair.webp" type="image/webp" />
+              <img src="assets/images/case-ii-repair.png" alt="Hands under the sink" width="889" height="1070" loading="lazy" />
+            </picture>
           </div>
           <div class="casebook-text">
             <span class="roman">§ II. — The Repair</span>
@@ -140,7 +151,10 @@
         <!-- III -->
         <article class="casebook-entry layout-c" id="case-iii">
           <div class="casebook-media">
-            <img src="assets/images/case-iii-refresh.png" alt="Brass set true" />
+            <picture>
+              <source srcset="assets/images/case-iii-refresh.webp" type="image/webp" />
+              <img src="assets/images/case-iii-refresh.png" alt="Brass set true" width="893" height="1102" loading="lazy" />
+            </picture>
           </div>
           <div class="casebook-text">
             <span class="roman">§ III. — The Refresh</span>
@@ -157,7 +171,10 @@
         <!-- IV -->
         <article class="casebook-entry layout-d" id="case-iv">
           <div class="casebook-media">
-            <img src="assets/images/case-iv-restoration.png" alt="Solder drawn at the joint" />
+            <picture>
+              <source srcset="assets/images/case-iv-restoration.webp" type="image/webp" />
+              <img src="assets/images/case-iv-restoration.png" alt="Solder drawn at the joint" width="912" height="1140" loading="lazy" />
+            </picture>
           </div>
           <div class="casebook-text">
             <span class="roman">§ IV. — The Restoration</span>
@@ -174,7 +191,10 @@
         <!-- V -->
         <article class="casebook-entry layout-a" id="case-v">
           <div class="casebook-media">
-            <img src="assets/images/case-v-renovation.png" alt="A bathroom, commissioned" />
+            <picture>
+              <source srcset="assets/images/case-v-renovation.webp" type="image/webp" />
+              <img src="assets/images/case-v-renovation.png" alt="A bathroom, commissioned" width="928" height="1152" loading="lazy" />
+            </picture>
           </div>
           <div class="casebook-text">
             <span class="roman">§ V. — The Renovation</span>
@@ -191,7 +211,10 @@
         <!-- VI -->
         <article class="casebook-entry layout-b" id="case-vi">
           <div class="casebook-media">
-            <img src="assets/images/case-vi-estate.png" alt="The whole house, manifolded" />
+            <picture>
+              <source srcset="assets/images/case-vi-estate.webp" type="image/webp" />
+              <img src="assets/images/case-vi-estate.png" alt="The whole house, manifolded" width="909" height="1143" loading="lazy" />
+            </picture>
           </div>
           <div class="casebook-text">
             <span class="roman">§ VI. — The Estate</span>
@@ -235,7 +258,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="nav-brand" style="margin-bottom:18px;">
-            <img src="assets/images/crown-logo.png" alt="Crown Plumbing" class="crown-mark" />
+            <img src="assets/images/crown-logo.png" alt="Crown Plumbing" class="crown-mark" width="736" height="736" loading="lazy" />
             Crown Plumbing
           </div>
           <p>A craftsman's plumbing programme for Richmond Hill, Thornhill, Vaughan and the surrounding GTA.</p>
